@@ -5,9 +5,30 @@ import { mockTransactions } from '../api/api';
 
 export default function TransactionPage() {
   const [searchInput, setSearchInput] = useState('');
-  const filteredTransactions = mockTransactions.filter((m) =>
-    m.name.toLowerCase().includes(searchInput.toLowerCase()),
-  );
+
+  const [sort, setSort] = useState('latest');
+
+  const [category, setCateroy] = useState('all');
+
+  const filteredAndSorted = [...mockTransactions]
+    .filter((m) => m.name.toLowerCase().includes(searchInput.toLowerCase()))
+    .sort((a, b) => {
+      if (sort === 'latest') return new Date(b.date) - new Date(a.date);
+      if (sort === 'oldest') return new Date(a.date) - new Date(b.date);
+      if (sort === 'a-z') return a.name.localeCompare(b.name);
+      if (sort === 'z-a') return b.name.localeCompare(a.name);
+      if (sort === 'highest') return b.amount - a.amount;
+      if (sort === 'lowest') return a.amount - b.amount;
+    })
+    .filter((m) => {
+      if (category === 'all') return m;
+      if (category === 'entertainement') return m.category === 'Entertainment';
+      if (category === 'bills') return m.category === 'Bills';
+      if (category === 'groceries') return m.category === 'Groceries';
+      if (category === 'dining') return m.category === 'Dining Out';
+      if (category === 'transportation') return category === 'Transportation';
+      if (category === 'personalCare') return category === 'Personal Care';
+    });
 
   return (
     <main className="py-8 px-10 flex flex-col gap-8">
@@ -16,8 +37,12 @@ export default function TransactionPage() {
         <TransactionHeader
           searchInput={searchInput}
           setSearchInput={setSearchInput}
+          onSort={setSort}
+          sort={sort}
+          category={category}
+          onCategory={setCateroy}
         />
-        <TransactionTable transactions={filteredTransactions} />
+        <TransactionTable transactions={filteredAndSorted} />
       </section>
     </main>
   );
