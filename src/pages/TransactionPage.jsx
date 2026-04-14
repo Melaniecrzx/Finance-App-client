@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import TransactionHeader from '../components/Transactions/TransactionHeader/TransactionHeader';
 import TransactionTable from '../components/Transactions/TransactionTable/TransactionTable';
+import TransactionPagination from '../components/Transactions/TransactionPagination';
 import { mockTransactions } from '../api/api';
 
 export default function TransactionPage() {
   const [searchInput, setSearchInput] = useState('');
-
   const [sort, setSort] = useState('latest');
-
   const [category, setCateroy] = useState('all');
+  const [page, setPage] = useState(1);
 
   const filteredAndSorted = [...mockTransactions]
     .filter((m) => m.name.toLowerCase().includes(searchInput.toLowerCase()))
@@ -30,6 +30,8 @@ export default function TransactionPage() {
       if (category === 'personalCare') return category === 'Personal Care';
     });
 
+  const pagined = filteredAndSorted.slice((page - 1) * 10, page * 10);
+
   return (
     <main className="py-8 px-10 flex flex-col gap-8">
       <h1 className="font1 text-grey-900">Transactions</h1>
@@ -42,7 +44,12 @@ export default function TransactionPage() {
           category={category}
           onCategory={setCateroy}
         />
-        <TransactionTable transactions={filteredAndSorted} />
+        <TransactionTable transactions={pagined} />
+        <TransactionPagination
+          total={filteredAndSorted.length}
+          page={page}
+          setPage={setPage}
+        />
       </section>
     </main>
   );

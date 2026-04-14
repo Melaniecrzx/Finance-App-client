@@ -6,7 +6,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 export default function Main() {
   const location = useLocation();
   return (
-    <div className="h-screen">
+    <div className="h-screen flex ">
       <NavBar />
       <SideBar />
       <Outlet location={location.pathname} />
