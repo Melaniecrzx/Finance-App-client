@@ -7,6 +7,7 @@ import Main from './layout/Main';
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 const OverviewPage = lazy(() => import('./pages/OverviewPage'));
 const TransactionPage = lazy(() => import('./pages/TransactionPage'));
+const PortsPage = lazy(() => import('./pages/PotsPage'));
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
         children: [
           { path: '/', element: <OverviewPage /> },
           { path: '/transactions', element: <TransactionPage /> },
+          { path: '/pots', element: <PortsPage /> },
         ],
       },
     ],

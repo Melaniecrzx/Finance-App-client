@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Button from '../../ui/Button';
+import Button from '../ui/Button';
 import FormField from './FormField';
 import useLogin from '../../hooks/useLogin';
 

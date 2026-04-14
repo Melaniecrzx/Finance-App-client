@@ -44,6 +44,11 @@ body,
     line-height: 120%;
     font-weight: bold;
   }
+  .font2 {
+    font-size: 20px;
+    light-height: 120%;
+    font-weight: bold;
+  }
   .font4-regular {
     font-size: 14px;
     line-height: 150%;

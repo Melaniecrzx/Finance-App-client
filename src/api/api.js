@@ -293,7 +293,7 @@ export const mockPots = [
     total: 110.0,
     theme: '#626070',
   },
-  { id: 3, name: 'Gift', target: 150.0, total: 110.0, theme: '#82C9D7' },
+  { id: 3, name: 'Gift', target: 60, total: 40, theme: '#82C9D7' },
   { id: 4, name: 'New Laptop', target: 1000.0, total: 10.0, theme: '#F2CDAC' },
   { id: 5, name: 'Holiday', target: 1440.0, total: 531.0, theme: '#826CB0' },
 ];
