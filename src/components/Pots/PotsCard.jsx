@@ -1,20 +1,45 @@
 import { useState } from 'react';
 import AddToPotModal from './AddToPotModal';
+import WithdrawPotModal from './WithdrawPotModal';
 import Button from '../ui/Button';
+import IconEllipsis from '../Icon/IconEllipsis';
+import MenuDropdown from '../ui/MenuDropdown';
+import EditPotModal from './EditPotModal';
+import DeletePotModal from './DeletePotModal';
 
-export default function PotsCard({ pot }) {
+export default function PotsCard({ pot, onEdit, onDelete }) {
   const [addToPotOpen, setAddToPotOpen] = useState(false);
+  const [editPotOpen, setEditPotOpen] = useState(false);
+  const [deletePotOpen, setDeletePotOpen] = useState(false);
+  const [withdrawOpen, setWithdrawOpen] = useState(false);
   const [total, setTotal] = useState(pot.total);
+  const links = [
+    {
+      id: 1,
+      onClick: () => setEditPotOpen(true),
+      label: 'Edit Pot',
+      className: 'text-grey-900',
+    },
+    {
+      id: 2,
+      onClick: () => setDeletePotOpen(true),
+      label: 'Delete Pot',
+      className: 'text-red',
+    },
+  ];
 
   const pourcentage = (Math.floor((total / pot.target) * 1000) / 10).toFixed(1);
   return (
     <div className="bg-white p-6 rounded-xl w-85.75 md:w-167 lg:w-129.5 flex flex-col gap-8">
-      <div className="flex gap-4 items-center">
-        <div
-          className="rounded-full h-4 w-4"
-          style={{ backgroundColor: pot.theme }}
-        ></div>
-        <h2 className="font2 text-grey-900">{pot.name}</h2>
+      <div className="flex justify-between items-center">
+        <div className="flex gap-4 items-center">
+          <div
+            className="rounded-full h-4 w-4"
+            style={{ backgroundColor: pot.theme }}
+          ></div>
+          <h2 className="font2 text-grey-900">{pot.name}</h2>
+        </div>
+        <MenuDropdown button={<IconEllipsis />} links={links} />
       </div>
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
@@ -40,7 +65,9 @@ export default function PotsCard({ pot }) {
         <Button className="flex-1" onClick={() => setAddToPotOpen(true)}>
           + Add Money
         </Button>
-        <Button className="flex-1">Withdraw</Button>
+        <Button className="flex-1" onClick={() => setWithdrawOpen(true)}>
+          Withdraw
+        </Button>
       </div>
       <AddToPotModal
         addToPotOpen={addToPotOpen}
@@ -48,6 +75,25 @@ export default function PotsCard({ pot }) {
         pot={pot}
         total={total}
         setTotal={setTotal}
+      />
+      <WithdrawPotModal
+        withdrawOpen={withdrawOpen}
+        setWithdrawOpen={setWithdrawOpen}
+        pot={pot}
+        total={total}
+        setTotal={setTotal}
+      />
+      <EditPotModal
+        editPotOpen={editPotOpen}
+        setEditPotOpen={setEditPotOpen}
+        pot={pot}
+        onEdit={onEdit}
+      />
+      <DeletePotModal
+        deletePotOpen={deletePotOpen}
+        setDeletePotOpen={setDeletePotOpen}
+        pot={pot}
+        onDelete={onDelete}
       />
     </div>
   );
