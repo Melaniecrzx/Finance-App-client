@@ -38,7 +38,7 @@ export default function NavBar() {
       id: 5,
       name: 'Recurring Bills',
       icon: <img src={iconBills} alt="" className="h-6 w-6" />,
-      to: '/recurring-bills',
+      to: '/bills',
     },
   ];
 

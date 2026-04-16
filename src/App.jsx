@@ -8,6 +8,8 @@ const AuthPage = lazy(() => import('./pages/AuthPage'));
 const OverviewPage = lazy(() => import('./pages/OverviewPage'));
 const TransactionPage = lazy(() => import('./pages/TransactionPage'));
 const PortsPage = lazy(() => import('./pages/PotsPage'));
+const BudgetsPage = lazy(() => import('./pages/BudgetsPage'));
+const BillsPage = lazy(() => import('./pages/BillsPage'));
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,8 @@ const router = createBrowserRouter([
           { path: '/', element: <OverviewPage /> },
           { path: '/transactions', element: <TransactionPage /> },
           { path: '/pots', element: <PortsPage /> },
+          { path: '/budgets', element: <BudgetsPage /> },
+          { path: '/bills', element: <BillsPage /> },
         ],
       },
     ],

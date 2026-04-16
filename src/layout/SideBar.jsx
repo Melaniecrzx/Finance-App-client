@@ -35,7 +35,7 @@ export default function SideBar() {
       id: 5,
       name: 'Recurring Bills',
       icon: <img src={iconBills} alt="" />,
-      to: '/recurring-bills',
+      to: '/bills',
     },
   ];
 
