@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import iconCaretDown from '../../../assets/images/icon-caret-down.svg';
+import IconSort from '../../../assets/images/icon-sort-mobile.svg';
 
 export default function SortFilter({ value, onChange }) {
   const options = [
@@ -16,20 +17,29 @@ export default function SortFilter({ value, onChange }) {
 
   return (
     <div className="flex gap-2 items-center relative">
-      <span>Sort By</span>
+      <span className="font4-regular hidden md:block text-grey-500">
+        Sort By
+      </span>
       <button
-        className="flex gap-4 cursor-pointer"
+        className="cursor-pointer md:border border-beige-500 rounded-lg md:px-5 md:py-3"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        {selected?.label}
-        <img src={iconCaretDown} alt="" />
+        <div className="gap-4 hidden md:flex font4-regular text-grey-900">
+          {selected?.label}
+          <img src={iconCaretDown} alt="" />
+        </div>
+        <img
+          src={IconSort}
+          alt="Icon Sort"
+          className="w-5 h-5 min-w-5 min-h-5 block md:hidden"
+        />
       </button>
       {isOpen && (
-        <ul className="absolute top-full p-4 flex flex-col gap-2 right-0 bg-white shadow-md rounded-lg z-10 min-w-40">
+        <ul className="absolute top-full flex flex-col  right-0 bg-white shadow-md rounded-lg z-10 min-w-40">
           {options.map((option) => (
             <li
               key={option.id}
-              className="border-b text-grey-900 border-grey-100 font4-regular last:border-none"
+              className="border-b hover:bg-beige-50 p-4 text-grey-900 border-grey-100 font4-regular last:border-none"
             >
               <button
                 className="cursor-pointer"

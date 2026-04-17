@@ -8,6 +8,7 @@ import {
   ListboxOption,
   ListboxOptions,
 } from '@headlessui/react';
+import { usePots } from '../../context/PotsContext';
 
 const themes = [
   { id: 1, name: 'Green', color: '#277C78' },
@@ -18,8 +19,9 @@ const themes = [
   { id: 6, name: 'Purple', color: '#826CB0' },
 ];
 
-export default function AddNewPot({ addNewPotOpen, setAddNewPotOpen, onAdd }) {
+export default function AddNewPot({ addNewPotOpen, setAddNewPotOpen }) {
   const [form, setForm] = useState({ name: '', target: '' });
+  const { addPot } = usePots();
 
   const [selectedTheme, setSelectedTheme] = useState(themes[0]);
 
@@ -30,11 +32,11 @@ export default function AddNewPot({ addNewPotOpen, setAddNewPotOpen, onAdd }) {
     const newPot = {
       id: Date.now(),
       name: form.name,
-      target: form.target,
+      target: Number(form.target),
       total: 0,
       theme: selectedTheme.color,
     };
-    onAdd(newPot);
+    addPot(newPot);
     setForm({ name: '', target: '' });
     setSelectedTheme(themes[0]);
     setAddNewPotOpen(false);

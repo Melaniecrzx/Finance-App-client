@@ -5,7 +5,7 @@ export default function BudgetSummary({ budgets }) {
   const maximumBudgetTotal = budgets.reduce((acc, b) => acc + b.maximum, 0);
 
   return (
-    <section className="bg-white rounded-xl flex flex-col gap-8 px-5 py-6 md:p-8 lg:self-start">
+    <section className="bg-white rounded-xl flex flex-col gap-8 px-5 py-6 md:p-8 lg:self-start lg:w-100 lg:shrink-0">
       <div className="relative flex items-center justify-center">
         <PieChart width={240} height={240}>
           <Pie

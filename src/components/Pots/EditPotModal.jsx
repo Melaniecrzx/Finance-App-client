@@ -8,13 +8,10 @@ import {
   ListboxOption,
   ListboxOptions,
 } from '@headlessui/react';
+import { usePots } from '../../context/PotsContext';
 
-export default function EditPotModal({
-  editPotOpen,
-  setEditPotOpen,
-  pot,
-  onEdit,
-}) {
+export default function EditPotModal({ editPotOpen, setEditPotOpen, pot }) {
+  const { editPot } = usePots();
   const [form, setForm] = useState({
     name: pot.name,
     target: pot.target,
@@ -43,7 +40,7 @@ export default function EditPotModal({
       total: pot.total,
       theme: selectedTheme.color,
     };
-    onEdit(editPot);
+    editPot(editPot);
     setForm({ name: '', target: '' });
     setSelectedTheme(themes[0]);
     setEditPotOpen(false);

@@ -33,7 +33,7 @@ export default function BudgetCard({ budget, stats, onEdit, onDelete }) {
   ];
 
   return (
-    <section className="bg-white rounded-xl px-5 py-6 md:p- flex flex-col gap-5">
+    <section className="bg-white rounded-xl px-5 py-6 md:p-8 w-full flex flex-col gap-5">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div
@@ -57,7 +57,7 @@ export default function BudgetCard({ budget, stats, onEdit, onDelete }) {
             }}
           ></div>
         </div>
-        <div className="flex gap-100">
+        <div className="flex justify-around">
           <div className="flex gap-2 items-start">
             <div
               className="h-10.75 w-1 rounded-lg"

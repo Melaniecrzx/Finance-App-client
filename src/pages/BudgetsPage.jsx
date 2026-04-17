@@ -59,7 +59,7 @@ export default function BudgetsPage() {
   }));
 
   return (
-    <main className="py-8 px-4 md:px-10 w-full">
+    <main className="py-8 px-4 mb-10 md:px-10 flex flex-col gap-8 w-full">
       <div className="flex justify-between items-center">
         <h1 className="font1 text-grey-900">Budgets</h1>
         <Button mode="primary" onClick={() => setAddNewBudgetOpen(true)}>
@@ -68,7 +68,7 @@ export default function BudgetsPage() {
       </div>
       <div className="flex flex-col gap-8 md:gap-6 lg:flex-row ">
         <BudgetSummary budgets={budgetsWithStats} />
-        <div className="flex flex-col gap-6 ">
+        <div className="flex flex-col gap-6 flex-1 min-w-0">
           {budgets.map((m) => (
             <BudgetCard
               key={m.id}

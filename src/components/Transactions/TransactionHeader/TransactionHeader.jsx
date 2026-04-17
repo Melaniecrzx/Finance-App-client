@@ -10,6 +10,7 @@ export default function TransactionHeader({
   onSort,
   category,
   onCategory,
+  setPage,
 }) {
   return (
     <section className="flex justify-between">
@@ -17,6 +18,7 @@ export default function TransactionHeader({
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         handleSearch={handleSearch}
+        setPage={setPage}
       />
       <div className="flex gap-6 items-center">
         <SortFilter value={sort} onChange={onSort} />

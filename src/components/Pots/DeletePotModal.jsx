@@ -1,12 +1,13 @@
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
+import { usePots } from '../../context/PotsContext';
 
 export default function DeletePotModal({
   deletePotOpen,
   setDeletePotOpen,
   pot,
-  onDelete,
 }) {
+  const { deletePot } = usePots();
   return (
     <Modal
       isOpen={deletePotOpen}
@@ -19,9 +20,9 @@ export default function DeletePotModal({
           reversed, and all the data inside it will be removed forever.
         </p>
         <Button
-          mode="detroy"
+          mode="destroy"
           onClick={() => {
-            onDelete(pot.id);
+            deletePot(pot.id);
             setDeletePotOpen(false);
           }}
         >

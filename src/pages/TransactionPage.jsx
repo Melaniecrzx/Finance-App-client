@@ -33,7 +33,7 @@ export default function TransactionPage() {
   const pagined = filteredAndSorted.slice((page - 1) * 10, page * 10);
 
   return (
-    <main className="py-8 px-10 flex flex-col gap-8">
+    <main className="py-8 mb-10 px-4 md:px-10 flex flex-col gap-8 overflow-hidden">
       <h1 className="font1 text-grey-900">Transactions</h1>
       <section className="bg-white rounded-xl py-6 px-5 md:p-8 flex flex-col gap-6">
         <TransactionHeader
@@ -43,6 +43,7 @@ export default function TransactionPage() {
           sort={sort}
           category={category}
           onCategory={setCateroy}
+          setPage={setPage}
         />
         <TransactionTable transactions={pagined} />
         <TransactionPagination

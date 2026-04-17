@@ -43,7 +43,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed bottom-0 lg:hidden bg-grey-900 w-full h-20 rounded-t-xl px-4 md:px-10 pt-2">
+    <nav className="fixed bottom-0 lg:hidden bg-grey-900 w-full h-20 rounded-t-xl px-4 md:px-10 pt-2 z-50 ">
       <ul className="flex justify-evenly ">
         {pages.map((p) => (
           <li key={p.id} className="px-5.5 md:px-6 py-4">

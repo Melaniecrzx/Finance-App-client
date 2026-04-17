@@ -30,7 +30,7 @@ export default function PotsCard({ pot, onEdit, onDelete }) {
 
   const pourcentage = (Math.floor((total / pot.target) * 1000) / 10).toFixed(1);
   return (
-    <div className="bg-white p-6 rounded-xl w-85.75 md:w-167 lg:w-129.5 flex flex-col gap-8">
+    <div className="bg-white p-6 rounded-xl w-full flex flex-col gap-8">
       <div className="flex justify-between items-center">
         <div className="flex gap-4 items-center">
           <div

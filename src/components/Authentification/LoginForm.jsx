@@ -56,11 +56,9 @@ export default function LoginForm({ onClick }) {
 
         {isError && <p className="text-red text-sm -mt-4">{error}</p>}
 
-        <Button
-          type="submit"
-          mode="primary"
-          text={isPending ? 'Logging in...' : 'Login'}
-        />
+        <Button type="submit" mode="primary">
+          Login
+        </Button>
       </form>
 
       <p className="text-grey-500 font4-regular text-center">

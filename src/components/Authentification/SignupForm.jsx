@@ -88,11 +88,9 @@ export default function SignupForm({ onClick }) {
 
         {isError && <p className="text-red text-sm -mt-4">{error.message}</p>}
 
-        <Button
-          type="submit"
-          mode="primary"
-          text={isPending ? 'Creating account...' : 'Sign Up'}
-        />
+        <Button type="submit" mode="primary">
+          Sign Up
+        </Button>
       </form>
 
       <p className="text-grey-500 font4-regular text-center">

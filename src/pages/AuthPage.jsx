@@ -8,7 +8,7 @@ export default function AuthPage() {
   const [authForm, setAuthForm] = useState('login');
 
   return (
-    <div className="flex lg:m-5 min-h-screen">
+    <div className="flex min-h-screen">
       <div className="hidden lg:flex relative flex-col w-140 shrink-0 p-6">
         <img src={logoLarge} alt="logo" className="absolute top-10 left-10" />
         <img
